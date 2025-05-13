@@ -221,7 +221,7 @@ quizzes = [
     },
     {
         "question": "What do we call the place where we save our files?",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Folder_icon.png",  # Folder
+        "image": "images/6.jpeg",  # Folder
         "options": ["Box", "Folder", "Container", "Bag"],
         "correct": "Folder",
         "explanation": "A folder is like a digital container where we keep our files!"

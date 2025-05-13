@@ -231,6 +231,9 @@ quizzes = [
 def main():
     st.title("🎮 Kids' Computer Quiz")
     
+    # Display the futuro.jpg image at the top
+    st.image("images/futuro.jpg", use_container_width=True)
+    
     if not st.session_state.user_info_submitted:
         # User Information Form
         with st.form("user_info"):

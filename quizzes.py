@@ -377,15 +377,6 @@ def main():
                 
                 display_df = leaderboard_df[display_columns].rename(columns=column_names)
                 st.dataframe(display_df, use_container_width=True)
-                
-                # Add download button for leaderboard
-                csv = display_df.to_csv(index=False)
-                st.download_button(
-                    label="📥 Download Leaderboard",
-                    data=csv,
-                    file_name="quiz_leaderboard.csv",
-                    mime="text/csv"
-                )
             
             if st.button("🔄 Try Again"):
                 st.session_state.current_quiz = 0
@@ -393,6 +384,15 @@ def main():
                 st.session_state.score = 0
                 st.session_state.answers = {}
                 st.session_state.start_time = None
+                st.rerun()
+            
+            # Add reset leaderboard button
+            if st.button("🗑️ Reset Leaderboard", type="secondary"):
+                st.session_state.leaderboard = []
+                # Delete the CSV file if it exists
+                if os.path.exists('leaderboard.csv'):
+                    os.remove('leaderboard.csv')
+                st.success("Leaderboard has been reset and CSV file deleted!")
                 st.rerun()
 
 if __name__ == "__main__":
